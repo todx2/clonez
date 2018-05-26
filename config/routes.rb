@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   get 'sessions/new'
 
   get  '/signup',  to: 'users#new'
@@ -35,6 +39,7 @@ Rails.application.routes.draw do
   
   #may 20 2018
   resources :account_activations, only: [:edit]
-
+  #may 25 2018
+  resources :password_resets,     only: [:new, :create, :edit, :update]
 
 end

@@ -5,11 +5,12 @@ class UserMailer < ApplicationMailer
     mail to: user.email, subject: "Account activation"
   end
 
-  def password_reset
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+#may 25 2018
+  def password_reset(user)
+    @user = user
+    mail to: user.email, subject: "Password reset"
   end
+  
 end
 
 
