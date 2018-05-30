@@ -38,7 +38,9 @@ def new
     
     #may 23 2018       FILLED IN
     redirect_to root_url and return unless @user.activated?
-
+    
+    #may 27 2018
+    @microposts = @user.microposts.paginate(page: params[:page])
 
     #nice debudder--lik ende c code  ctrl+d makes it run again--ted
     #debugger
@@ -93,6 +95,9 @@ def new
 
 
   
+
+
+  
   #added  with xyz above
   private
 
@@ -101,17 +106,7 @@ def new
                                    :password_confirmation)
     end
 
-    #added  may 19 2018
-    # Confirms a logged-in user.
-    def logged_in_user
-      unless logged_in?
-       
-       store_location
-       
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
-    end
+   
 
     # Confirms the correct user.
     def correct_user

@@ -1,6 +1,14 @@
 
 
 class User < ApplicationRecord
+  
+#may 27 2018   dependent: :destroy  adeed so that when we delete a user ...all his tweets will also be gone
+ has_many :microposts, dependent: :destroy
+
+   #may 26 2018
+    # has_many :microposts
+
+
   #may 25 2018
     attr_accessor :remember_token, :activation_token, :reset_token
  
@@ -94,6 +102,13 @@ class User < ApplicationRecord
   # Returns true if a password reset has expired. may 26 2018
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
+  end
+
+  #may 27 2018
+  # Defines a proto-feed.
+  # See "Following users" for the full implementation.
+  def feed
+    Micropost.where("user_id = ?", id)
   end
 
 

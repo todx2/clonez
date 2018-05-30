@@ -5,5 +5,16 @@ class ApplicationController < ActionController::Base
   #end
     include SessionsHelper
 
+  #may 27 2018  --only  logged in peolpe can tweet 
+ private
+    # Confirms a logged-in user.
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+
 
 end
