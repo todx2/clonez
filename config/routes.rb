@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   get  '/signup',  to: 'users#new'
 
   #ted experiment--may 20 2018 --same old crsf  invalid authenticity token seen
-  #ted experiment again may 30 2018
-  
-  post  '/signupx',  to: 'users#new'
+ 
+ #ted experiment again may 30 2018  nice but u have make it work on local first
+  #post  '/signupx',  to: 'users#new'
   
   #get 'users/new'
 

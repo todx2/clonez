@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
  
   #may 30 2018  test
-  #protect_from_forgery with: :exception
+  protect_from_forgery with: :exception
   
   #def selam
   #  render html: "hello, world!"
