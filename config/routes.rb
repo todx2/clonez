@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   get  '/signup',  to: 'users#new'
 
   #ted experiment--may 20 2018 --same old crsf  invalid authenticity token seen
-  #ted experiment again after installing rack-cores gem
-  #post  '/signupx',  to: 'users#create'
+  #ted experiment again may 30 2018
+  
+  post  '/signupx',  to: 'users#new'
   
   #get 'users/new'
 
